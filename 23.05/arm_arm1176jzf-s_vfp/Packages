@@ -1,0 +1,12 @@
+Package: byedpi
+Version: 0.16.4-1
+Depends: libc
+License: MIT
+Section: net
+Architecture: arm_arm1176jzf-s_vfp
+Installed-Size: 27603
+Filename: byedpi_0.16.4-1_arm_arm1176jzf-s_vfp.ipk
+Size: 28278
+SHA256sum: ad63d089871fa21b6bc9b2b55505344bca3191bf29c2e7159e9139d62c91b123
+Description:  Local SOCKS proxy server to bypass DPI (Deep Packet Inspection)
+

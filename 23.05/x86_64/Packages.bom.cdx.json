@@ -1,0 +1,1 @@
+{"version":1,"metadata":{"timestamp":"2025-02-06T05:35:35Z"},"bomFormat":"CycloneDX","components":[{"name":"byedpi","type":"application","version":"0.16.4","licenses":[{"license":{"name":"MIT"}}]}],"serialNumber":"urn:uuid:083f37e4-7a29-440b-9e6a-9fc5cd19ee37","specVersion":"1.4"}

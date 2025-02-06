@@ -1,0 +1,16 @@
+Package: byedpi
+Version: 0.16.4-1
+Depends: libc
+Source: /__w/ByeDPI-OpenWrt/ByeDPI-OpenWrt/byedpi
+SourceName: byedpi
+License: MIT
+LicenseFiles: LICENSE
+Section: net
+SourceDateEpoch: 1721689001
+Architecture: arm_fa526
+Installed-Size: 27552
+Filename: byedpi_0.16.4-1_arm_fa526.ipk
+Size: 28315
+SHA256sum: eb3f4c1646366356a4368d37017416f9a54f929e39f4f89079d2642c842577b6
+Description:  Local SOCKS proxy server to bypass DPI (Deep Packet Inspection)
+
