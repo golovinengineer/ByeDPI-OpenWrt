@@ -1,0 +1,12 @@
+Package: byedpi
+Version: 0.16.5-1
+Depends: libc
+License: MIT
+Section: net
+Architecture: arm_mpcore
+Installed-Size: 27445
+Filename: byedpi_0.16.5-1_arm_mpcore.ipk
+Size: 28222
+SHA256sum: 42eccda308d3bb33928c926fecdc20671babaae37b93f3e13b1a8f9948806d6b
+Description:  Local SOCKS proxy server to bypass DPI (Deep Packet Inspection)
+
