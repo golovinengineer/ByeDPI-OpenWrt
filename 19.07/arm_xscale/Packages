@@ -1,0 +1,12 @@
+Package: byedpi
+Version: 0.16.6-1
+Depends: libc
+License: MIT
+Section: net
+Architecture: arm_xscale
+Installed-Size: 27579
+Filename: byedpi_0.16.6-1_arm_xscale.ipk
+Size: 28251
+SHA256sum: 38da3d1833bc2a1cef6cf09ff535161a17d1c2009510b824ee9c53216f28208d
+Description:  Local SOCKS proxy server to bypass DPI (Deep Packet Inspection)
+
