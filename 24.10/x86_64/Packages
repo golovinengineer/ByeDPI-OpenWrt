@@ -1,0 +1,13 @@
+Package: byedpi
+Version: 0.17-r1
+Depends: libc
+License: MIT
+Section: net
+URL: https://github.com/hufrea/byedpi
+Architecture: x86_64
+Installed-Size: 81920
+Filename: byedpi_0.17-r1_x86_64.ipk
+Size: 33574
+SHA256sum: aa9094deab4514d11f65baee669138404202e865aa96b15653458c02aa3bb751
+Description:  Local SOCKS proxy server to bypass DPI (Deep Packet Inspection)
+

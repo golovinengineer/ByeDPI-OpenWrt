@@ -1,0 +1,12 @@
+Package: byedpi
+Version: 0.17-1
+Depends: libc
+License: MIT
+Section: net
+Architecture: arm_cortex-a9_neon
+Installed-Size: 28555
+Filename: byedpi_0.17-1_arm_cortex-a9_neon.ipk
+Size: 29282
+SHA256sum: 75ba32559b83f48dc50213ca944260bc5d80e081024149adc0fa709b275a795e
+Description:  Local SOCKS proxy server to bypass DPI (Deep Packet Inspection)
+

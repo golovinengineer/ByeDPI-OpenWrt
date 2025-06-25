@@ -1,0 +1,16 @@
+Package: byedpi
+Version: 0.17-1
+Depends: libc
+Source: /__w/ByeDPI-OpenWrt/ByeDPI-OpenWrt/byedpi
+SourceName: byedpi
+License: MIT
+LicenseFiles: LICENSE
+Section: net
+SourceDateEpoch: 1749660196
+Architecture: arm_cortex-a7
+Installed-Size: 28599
+Filename: byedpi_0.17-1_arm_cortex-a7.ipk
+Size: 29320
+SHA256sum: 90c3b6ce37e6baf030cd667ae0bc718d00a044c28e0c471bdee3774d5cffdaaf
+Description:  Local SOCKS proxy server to bypass DPI (Deep Packet Inspection)
+

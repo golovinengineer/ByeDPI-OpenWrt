@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "architecture": "mips_4kec",
+  "packages": {
+    "byedpi": "0.17-r1"
+  }
+}
