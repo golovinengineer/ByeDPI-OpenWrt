@@ -11,57 +11,159 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        branch:
-          - openwrt-19.07
-          - openwrt-21.02
-          - openwrt-22.03
-          - openwrt-23.05
-          - openwrt-24.10
-        arch:
-          - aarch64_cortex-a53
-          - aarch64_cortex-a72
-          - aarch64_generic
-          - arm_arm1176jzf-s_vfp
-          - arm_arm926ej-s
-          - arm_cortex-a15_neon-vfpv4
-          - arm_cortex-a5_vfpv4
-          - arm_cortex-a7
-          - arm_cortex-a7_neon-vfpv4
-          - arm_cortex-a7_vfpv4
-          - arm_cortex-a8_vfpv3
-          - arm_cortex-a9
-          - arm_cortex-a9_neon
-          - arm_cortex-a9_vfpv3-d16
-          - arm_fa526
-          - arm_mpcore
-          - arm_xscale
-          - mips64_octeonplus
-          - mips_24kc
-          - mips_4kec
-          - mips_mips32
-          - mipsel_24kc
-          - mipsel_24kc_24kf
-          - mipsel_74kc
-          - mipsel_mips32
-          - x86_64
-        exclude:
-          - branch: openwrt-19.07
-            arch: arm_cortex-a7
-          - branch: openwrt-19.07
-            arch: arm_cortex-a7_vfpv4
-          - branch: openwrt-19.07
-            arch: mips_4kec
-          - branch: openwrt-21.02
-            arch: arm_cortex-a7_vfpv4
-          - branch: openwrt-24.10
-            arch: arm_mpcore
         include:
-          - branch: openwrt-24.10
-            arch: aarch64_cortex-a76
-          # - branch: SNAPSHOT
-          #   arch: x86_64
+          # OpenWrt 19.07 – sdk image tag: openwrt/sdk:<arch>-openwrt-19.07
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: aarch64_cortex-a53 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: aarch64_cortex-a72 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: aarch64_generic }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_arm1176jzf-s_vfp }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_arm926ej-s }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_cortex-a15_neon-vfpv4 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_cortex-a5_vfpv4 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_cortex-a7_neon-vfpv4 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_cortex-a8_vfpv3 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_cortex-a9 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_cortex-a9_neon }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_cortex-a9_vfpv3-d16 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_fa526 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_mpcore }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: arm_xscale }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: mips64_octeonplus }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: mips_24kc }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: mips_mips32 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: mipsel_24kc }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: mipsel_24kc_24kf }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: mipsel_74kc }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: mipsel_mips32 }
+          - { branch: openwrt-19.07, sdk_tag: openwrt-19.07, arch: x86_64 }
+          # OpenWrt 21.02
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: aarch64_cortex-a53 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: aarch64_cortex-a72 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: aarch64_generic }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_arm1176jzf-s_vfp }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_arm926ej-s }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_cortex-a15_neon-vfpv4 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_cortex-a5_vfpv4 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_cortex-a7 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_cortex-a7_neon-vfpv4 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_cortex-a8_vfpv3 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_cortex-a9 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_cortex-a9_neon }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_cortex-a9_vfpv3-d16 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_fa526 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_mpcore }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: arm_xscale }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: mips64_octeonplus }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: mips_24kc }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: mips_4kec }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: mips_mips32 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: mipsel_24kc }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: mipsel_24kc_24kf }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: mipsel_74kc }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: mipsel_mips32 }
+          - { branch: openwrt-21.02, sdk_tag: openwrt-21.02, arch: x86_64 }
+          # OpenWrt 22.03
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: aarch64_cortex-a53 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: aarch64_cortex-a72 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: aarch64_generic }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_arm1176jzf-s_vfp }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_arm926ej-s }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a15_neon-vfpv4 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a5_vfpv4 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a7 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a7_neon-vfpv4 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a7_vfpv4 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a8_vfpv3 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a9 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a9_neon }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_cortex-a9_vfpv3-d16 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_fa526 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_mpcore }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: arm_xscale }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: mips64_octeonplus }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: mips_24kc }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: mips_4kec }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: mips_mips32 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: mipsel_24kc }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: mipsel_24kc_24kf }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: mipsel_74kc }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: mipsel_mips32 }
+          - { branch: openwrt-22.03, sdk_tag: openwrt-22.03, arch: x86_64 }
+          # OpenWrt 23.05
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: aarch64_cortex-a53 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: aarch64_cortex-a72 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: aarch64_generic }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_arm1176jzf-s_vfp }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_arm926ej-s }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a15_neon-vfpv4 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a5_vfpv4 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a7 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a7_neon-vfpv4 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a7_vfpv4 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a8_vfpv3 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a9 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a9_neon }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_cortex-a9_vfpv3-d16 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_fa526 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_mpcore }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: arm_xscale }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: mips64_octeonplus }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: mips_24kc }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: mips_4kec }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: mips_mips32 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: mipsel_24kc }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: mipsel_24kc_24kf }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: mipsel_74kc }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: mipsel_mips32 }
+          - { branch: openwrt-23.05, sdk_tag: openwrt-23.05, arch: x86_64 }
+          # OpenWrt 24.10
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: aarch64_cortex-a53 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: aarch64_cortex-a72 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: aarch64_cortex-a76 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: aarch64_generic }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_arm1176jzf-s_vfp }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_arm926ej-s }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a15_neon-vfpv4 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a5_vfpv4 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a7 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a7_neon-vfpv4 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a7_vfpv4 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a8_vfpv3 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a9 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a9_neon }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_cortex-a9_vfpv3-d16 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_fa526 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: arm_xscale }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mips64_octeonplus }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mips_24kc }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mips_4kec }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mips_mips32 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mipsel_24kc }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mipsel_24kc_24kf }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mipsel_74kc }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mipsel_mips32 }
+          - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: x86_64 }
+          # OpenWrt 25.12 – sdk image tag: openwrt/sdk:<arch>-25.12 (no "openwrt-" prefix)
+          # Excludes: arm_mpcore, arm_fa526, mips_4kec, mips_mips32 (not available in 25.12 SDK)
+          - { branch: 25.12, sdk_tag: 25.12, arch: aarch64_cortex-a53 }
+          - { branch: 25.12, sdk_tag: 25.12, arch: aarch64_cortex-a72 }
+          - { branch: 25.12, sdk_tag: 25.12, arch: aarch64_cortex-a76 }
+          - { branch: 25.12, sdk_tag: 25.12, arch: arm_arm1176jzf-s_vfp }
+          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a7 }
+          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a7_vfpv4 }
+          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a8_vfpv3 }
+          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a9_neon }
+          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a9_vfpv3-d16 }
+          - { branch: 25.12, sdk_tag: 25.12, arch: arm_xscale }
+          - { branch: 25.12, sdk_tag: 25.12, arch: mips64_octeonplus }
+          - { branch: 25.12, sdk_tag: 25.12, arch: mips_24kc }
+          - { branch: 25.12, sdk_tag: 25.12, arch: mipsel_24kc }
+          - { branch: 25.12, sdk_tag: 25.12, arch: mipsel_24kc_24kf }
+          - { branch: 25.12, sdk_tag: 25.12, arch: mipsel_74kc }
+          - { branch: 25.12, sdk_tag: 25.12, arch: mipsel_mips32 }
+          - { branch: 25.12, sdk_tag: 25.12, arch: x86_64 }
     container:
-      image: openwrt/sdk:${{ matrix.arch }}-${{ matrix.branch }}
+      image: openwrt/sdk:${{ matrix.arch }}-${{ matrix.sdk_tag }}
       options: --user root
     defaults: { run: { shell: bash } }
     steps:
@@ -69,7 +171,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup SDK
-        if: matrix.branch == 'openwrt-23.05' || matrix.branch == 'openwrt-24.10' || matrix.branch == 'SNAPSHOT'
+        if: matrix.branch == 'openwrt-23.05' || matrix.branch == 'openwrt-24.10' || matrix.branch == '25.12' || matrix.branch == 'SNAPSHOT'
         working-directory: /builder
         run: HOME=/builder ./setup.sh
 
@@ -98,7 +200,7 @@ jobs:
           make package/byedpi/compile V=s -j$(nproc) BUILD_LOG=1
           echo "$SIGN_KEY" | base64 -d > key-build
           make package/index
-          tar -C ./bin/packages/*/byedpi -cvf $GITHUB_WORKSPACE/ipk-$BRANCH-$ARCH.tar --transform "s|^\./|${BRANCH/openwrt-}/$ARCH/|" --show-transformed-names .
+          tar -C ./bin/packages/*/byedpi -cvf $GITHUB_WORKSPACE/ipk-$BRANCH-$ARCH.tar --transform "s|^\./|${BRANCH/openwrt-/}/$ARCH/|" --show-transformed-names .
 
       - name: Compress build logs
         if: always()
@@ -167,6 +269,7 @@ jobs:
           - '22.03'
           - '23.05'
           - '24.10'
+          - '25.12'
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v4
@@ -177,7 +280,12 @@ jobs:
         env:
           BRANCH: ${{ matrix.branch }}
         run: |
-          find . -name "ipk-openwrt-$BRANCH-*.tar" -exec tar -xvf {} --wildcards '*.ipk' \;
+          # For 19.07–24.10 the artifact name contains "openwrt-<branch>"; for 25.12 it is just "25.12"
+          if [[ "$BRANCH" == "25.12" ]]; then
+            find . -name "ipk-${BRANCH}-*.tar" -exec tar -xvf {} --wildcards '*.apk' \;
+          else
+            find . -name "ipk-openwrt-${BRANCH}-*.tar" -exec tar -xvf {} --wildcards '*.ipk' \;
+          fi
 
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
@@ -194,4 +302,6 @@ jobs:
             ```
             # awk -F\' '/DISTRIB_ARCH/ {print $2}' /etc/openwrt_release
             ```
-          files: ./**/*.ipk
+          files: |
+            ./**/*.ipk
+            ./**/*.apk
