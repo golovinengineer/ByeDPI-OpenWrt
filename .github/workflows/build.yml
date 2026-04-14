@@ -143,25 +143,25 @@ jobs:
           - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mipsel_74kc }
           - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: mipsel_mips32 }
           - { branch: openwrt-24.10, sdk_tag: openwrt-24.10, arch: x86_64 }
-          # OpenWrt 25.12 – sdk image tag: openwrt/sdk:<arch>-25.12 (no "openwrt-" prefix)
+          # OpenWrt 25.12 – sdk image tag: openwrt/sdk:<arch>-25.12.2 (no floating "25.12" tag exists)
           # Excludes: arm_mpcore, arm_fa526, mips_4kec, mips_mips32 (not available in 25.12 SDK)
-          - { branch: 25.12, sdk_tag: 25.12, arch: aarch64_cortex-a53 }
-          - { branch: 25.12, sdk_tag: 25.12, arch: aarch64_cortex-a72 }
-          - { branch: 25.12, sdk_tag: 25.12, arch: aarch64_cortex-a76 }
-          - { branch: 25.12, sdk_tag: 25.12, arch: arm_arm1176jzf-s_vfp }
-          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a7 }
-          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a7_vfpv4 }
-          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a8_vfpv3 }
-          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a9_neon }
-          - { branch: 25.12, sdk_tag: 25.12, arch: arm_cortex-a9_vfpv3-d16 }
-          - { branch: 25.12, sdk_tag: 25.12, arch: arm_xscale }
-          - { branch: 25.12, sdk_tag: 25.12, arch: mips64_octeonplus }
-          - { branch: 25.12, sdk_tag: 25.12, arch: mips_24kc }
-          - { branch: 25.12, sdk_tag: 25.12, arch: mipsel_24kc }
-          - { branch: 25.12, sdk_tag: 25.12, arch: mipsel_24kc_24kf }
-          - { branch: 25.12, sdk_tag: 25.12, arch: mipsel_74kc }
-          - { branch: 25.12, sdk_tag: 25.12, arch: mipsel_mips32 }
-          - { branch: 25.12, sdk_tag: 25.12, arch: x86_64 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: aarch64_cortex-a53 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: aarch64_cortex-a72 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: aarch64_cortex-a76 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: arm_arm1176jzf-s_vfp }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: arm_cortex-a7 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: arm_cortex-a7_vfpv4 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: arm_cortex-a8_vfpv3 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: arm_cortex-a9_neon }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: arm_cortex-a9_vfpv3-d16 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: arm_xscale }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: mips64_octeonplus }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: mips_24kc }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: mipsel_24kc }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: mipsel_24kc_24kf }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: mipsel_74kc }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: mipsel_mips32 }
+          - { branch: 25.12, sdk_tag: 25.12.2, arch: x86_64 }
     container:
       image: openwrt/sdk:${{ matrix.arch }}-${{ matrix.sdk_tag }}
       options: --user root
