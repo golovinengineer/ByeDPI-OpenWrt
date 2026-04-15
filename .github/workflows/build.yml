@@ -243,7 +243,7 @@ jobs:
           find . -name 'ipk-*.tar' -exec tar -C ./public -xvf {} \;
           cat <<EOF >> public/public.key
           untrusted comment: ByeDPI OpenWrt repo
-          RWRT/Cfg5ReIbqWME8QTUQ1FKxp8FTr9M9g1vDsL8uIdRyP5TTNAk4QA
+          RWR5J0u7Q7Bmla+20Lm7xIdC8Uu92Z4F+NFWd4pU6yY8ElgWobaTU1h+
           EOF
 
       - name: Deploy to GH pages
