@@ -285,14 +285,17 @@ jobs:
           pattern: ipk-*
 
       - name: Prepare files
+        id: prepare
         env:
           BRANCH: ${{ matrix.branch }}
         run: |
           # For 19.07–24.10 the artifact name contains "openwrt-<branch>"; for 25.12 it is just "25.12"
           if [[ "$BRANCH" == "25.12" ]]; then
             find . -name "ipk-${BRANCH}-*.tar" -exec tar -xvf {} --wildcards '*.apk' \;
+            echo "files=./**/*.apk" >> $GITHUB_OUTPUT
           else
             find . -name "ipk-openwrt-${BRANCH}-*.tar" -exec tar -xvf {} --wildcards '*.ipk' \;
+            echo "files=./**/*.ipk" >> $GITHUB_OUTPUT
           fi
 
       - name: Upload release assets
@@ -310,6 +313,4 @@ jobs:
             ```
             # awk -F\' '/DISTRIB_ARCH/ {print $2}' /etc/openwrt_release
             ```
-          files: |
-            ./**/*.ipk
-            ./**/*.apk
+          files: ${{ steps.prepare.outputs.files }}
