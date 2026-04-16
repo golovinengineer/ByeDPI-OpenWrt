@@ -178,9 +178,10 @@ jobs:
         run: |
           # 23.05-SNAPSHOT no longer exists on downloads.openwrt.org; point to latest stable
           if [[ "$BRANCH" == "openwrt-23.05" ]]; then
-            export VERSION_PATH=releases/23.05.6
+            VERSION_PATH=releases/23.05.6 HOME=/builder ./setup.sh
+          else
+            HOME=/builder ./setup.sh
           fi
-          HOME=/builder ./setup.sh
 
       - name: Prepare build
         id: prepare
