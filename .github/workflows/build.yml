@@ -168,12 +168,19 @@ jobs:
     defaults: { run: { shell: bash } }
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
 
       - name: Setup SDK
         if: matrix.branch == 'openwrt-23.05' || matrix.branch == 'openwrt-24.10' || matrix.branch == '25.12' || matrix.branch == 'SNAPSHOT'
         working-directory: /builder
-        run: HOME=/builder ./setup.sh
+        env:
+          BRANCH: ${{ matrix.branch }}
+        run: |
+          # 23.05-SNAPSHOT no longer exists on downloads.openwrt.org; point to latest stable
+          if [[ "$BRANCH" == "openwrt-23.05" ]]; then
+            export VERSION_PATH=releases/23.05.6
+          fi
+          HOME=/builder ./setup.sh
 
       - name: Prepare build
         id: prepare
@@ -213,7 +220,7 @@ jobs:
 
       - name: Upload packages
         if: steps.build.outcome == 'success'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: ipk-${{ matrix.branch }}-${{ matrix.arch }}
           path: ipk-${{ matrix.branch }}-${{ matrix.arch }}.tar
@@ -221,7 +228,7 @@ jobs:
 
       - name: Upload build logs
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.1
         with:
           name: logs-${{ matrix.branch }}-${{ matrix.arch }}
           path: logs-*.tar.xz
@@ -233,7 +240,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8.0.1
         with:
           pattern: ipk-*
 
@@ -272,7 +279,7 @@ jobs:
           - '25.12'
     steps:
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8.0.1
         with:
           pattern: ipk-*
 
@@ -288,7 +295,7 @@ jobs:
           fi
 
       - name: Upload release assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3.0.0
         with:
           fail_on_unmatched_files: true
           tag_name: ${{ needs.build.outputs.tag }}-${{ matrix.branch }}
