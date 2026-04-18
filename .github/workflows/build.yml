@@ -291,7 +291,15 @@ jobs:
         run: |
           # For 19.07–24.10 the artifact name contains "openwrt-<branch>"; for 25.12 it is just "25.12"
           if [[ "$BRANCH" == "25.12" ]]; then
+            # Extract preserving directory structure: 25.12/<arch>/byedpi-*.apk
             find . -name "ipk-${BRANCH}-*.tar" -exec tar -xvf {} --wildcards '*.apk' \;
+            # Rename each .apk to include arch: byedpi-0.17.3-r1.apk -> byedpi-0.17.3-r1-aarch64_cortex-a53.apk
+            find . -path './*/*/*.apk' | while read f; do
+              arch=$(basename $(dirname "$f"))
+              dir=$(dirname "$f")
+              base=$(basename "$f" .apk)
+              mv "$f" "$dir/${base}-${arch}.apk"
+            done
             echo "files=./**/*.apk" >> $GITHUB_OUTPUT
           else
             find . -name "ipk-openwrt-${BRANCH}-*.tar" -exec tar -xvf {} --wildcards '*.ipk' \;
