@@ -1,0 +1,12 @@
+Package: byedpi
+Version: 0.17.3-1
+Depends: libc
+License: MIT
+Section: net
+Architecture: arm_cortex-a9_vfpv3-d16
+Installed-Size: 29896
+Filename: byedpi_0.17.3-1_arm_cortex-a9_vfpv3-d16.ipk
+Size: 30578
+SHA256sum: c4d019be109f4a58923f691b3556a61ec9641388240a3dca39f4e4d97bbe061e
+Description:  Local SOCKS proxy server to bypass DPI (Deep Packet Inspection)
+
