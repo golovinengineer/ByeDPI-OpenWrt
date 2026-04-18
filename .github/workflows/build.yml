@@ -293,11 +293,13 @@ jobs:
           if [[ "$BRANCH" == "25.12" ]]; then
             # Extract preserving directory structure: 25.12/<arch>/byedpi-*.apk
             find . -name "ipk-${BRANCH}-*.tar" -exec tar -xvf {} --wildcards '*.apk' \;
-            # Rename each .apk to include arch: byedpi-0.17.3-r1.apk -> byedpi-0.17.3-r1-aarch64_cortex-a53.apk
-            find . -path './*/*/*.apk' | while read f; do
-              arch=$(basename $(dirname "$f"))
+            # Rename each .apk to include arch from its parent directory name
+            # byedpi-0.17.3-r1.apk -> byedpi-0.17.3-r1-aarch64_cortex-a53.apk
+            find . -name '*.apk' | while read f; do
+              arch=$(basename "$(dirname "$f")")
               dir=$(dirname "$f")
               base=$(basename "$f" .apk)
+              echo "Renaming $f -> $dir/${base}-${arch}.apk"
               mv "$f" "$dir/${base}-${arch}.apk"
             done
             echo "files=./**/*.apk" >> $GITHUB_OUTPUT
